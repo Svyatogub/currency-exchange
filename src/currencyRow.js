@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css';
   
 export default function CurrencyRow(props) {
     const {
@@ -10,7 +11,7 @@ export default function CurrencyRow(props) {
     } = props;
 
   return (
-    <div>
+    <div className='CRow'>
         <input type='number' value={amount} onChange={onChangeAmount}/>
         <select value={selectFiat} onChange={onCangeFiat}>
             {fiat.map(currency => (

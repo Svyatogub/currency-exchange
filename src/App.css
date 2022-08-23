@@ -4,3 +4,27 @@ body {
     justify-content: center;
     text-align: center;
 }
+.Header {
+    display: flex;
+    width: 80vw;
+    margin: 0px 10vw 0px 10vw;
+    justify-content: center;
+}
+
+.Header p{
+    margin-right: 2vw;
+    font-weight: bold;
+}
+
+.CRow input{
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+    margin-right: 5px;
+    height: 20px;
+}
+.CRow select{
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+    margin-right: 5px;
+    height: 25px;
+}

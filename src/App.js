@@ -11,8 +11,7 @@ function App() {
   const [exchangeRate, setExchangeRate] = useState();
   const [amount, setAmount] = useState(1);
   const [changeAmount, setChangeAmount] = useState(true);
-
-  console.log(exchangeRate);
+  const [eurRate, setEruoRate] = useState();
 
   let toAmount, fromAmount;
   if(changeAmount) {
@@ -32,12 +31,14 @@ function App() {
         })
         .then(res => res.json())
         .then(data => {
-            const fromDefault = Object.keys(data.rates).find(obj => obj === 'USD')
-            const toDefault = Object.keys(data.rates).find(obj => obj === 'UAH')
+            const USD = Object.keys(data.rates).find(obj => obj === 'USD')
+            const UAH = Object.keys(data.rates).find(obj => obj === 'UAH')
             setFiat([...Object.keys(data.rates)])
-            setFromFiat(fromDefault)
-            setToFiat(toDefault)
-            setExchangeRate(data.rates[fromDefault])
+            setFromFiat(USD)
+            setToFiat(UAH)
+            setExchangeRate(data.rates[USD])
+            setEruoRate(data.rates[UAH])
+            console.log(data)
         })
     }, [])
 
@@ -66,6 +67,10 @@ function App() {
 
   return (
     <div className="App">
+     <div className='Header'>
+      <p>1 EURO = {exchangeRate} UAH</p>
+      <p>1 USD = {eurRate} UAH</p>
+     </div>
      <h1>Currency Exchange</h1>
      <CurrencyRow 
       fiat={fiat} 
